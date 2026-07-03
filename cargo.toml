@@ -3,3 +3,4 @@ members = [
     "bin",
     "proc",
 ]
+default-members = ["bin"]
