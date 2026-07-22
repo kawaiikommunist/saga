@@ -7,7 +7,6 @@ edition = "2024"
 proc-macro = true
 
 [dependencies]
-wasmtime = { workspace = true }
 bevy = { workspace = true }
 log = { workspace = true }
 tracing = { workspace = true }
