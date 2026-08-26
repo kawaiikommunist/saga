@@ -1,12 +1,13 @@
 use std::{any::Any, fmt::Debug, hash::Hash, ops::Index, sync::Arc};
 
 use bevy::ecs::entity::Entity;
-use slotmap::{self, Key, SlotMap, new_key_type};
+use slotmap::{self, SlotMap, new_key_type};
 
 new_key_type! {
     struct RootIdx;
     struct BranchIdx;
     struct LeafIdx;
+    struct FnIdx;
 }
 
 #[derive(Debug, Clone, Hash)]
@@ -33,8 +34,15 @@ pub struct LeafNode {
     pub output: Vec<Entity>,
 }
 
+#[derive(Debug, Clone, Hash)]
+pub struct FnNode {
+    pub instances: Vec<BranchIdx>,
+    // pub exe: dyn Fn,
+}
+
 pub struct Yggdrasil {
     roots: SlotMap<RootIdx, RootNode>,
     branches: SlotMap<BranchIdx, BranchNode>,
     leaves: SlotMap<LeafIdx, LeafNode>,
+    funcs: SlotMap<FnIdx, FnNode>,
 }
