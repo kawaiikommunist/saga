@@ -1,0 +1,8 @@
+[workspace]
+members = ["game", "utils/proc", "utils/rules"]
+default-members = ["game"]
+resolver = "3"
+
+[workspace.dependencies]
+bevy = "0.19"
+grid = "1.0.1"
