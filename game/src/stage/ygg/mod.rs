@@ -1,13 +1,19 @@
-use std::{any::Any, fmt::Debug, hash::Hash, ops::Index, sync::Arc};
+use std::{
+    any::{Any, TypeId},
+    fmt::Debug,
+    hash::Hash,
+    ops::Index,
+    sync::Arc,
+};
 
 use bevy::ecs::entity::Entity;
 use slotmap::{self, SlotMap, new_key_type};
 
 new_key_type! {
-    struct RootIdx;
-    struct BranchIdx;
-    struct LeafIdx;
-    struct FnIdx;
+    pub struct RootIdx;
+    pub struct BranchIdx;
+    pub struct LeafIdx;
+    pub struct FnIdx;
 }
 
 #[derive(Debug, Clone, Hash)]
@@ -26,6 +32,7 @@ pub struct RootNode {
 pub struct BranchNode {
     pub input: Vec<Yidx>,
     pub output: Vec<Yidx>,
+    pub func: FnIdx,
 }
 
 #[derive(Debug, Clone, Hash)]
@@ -37,7 +44,9 @@ pub struct LeafNode {
 #[derive(Debug, Clone, Hash)]
 pub struct FnNode {
     pub instances: Vec<BranchIdx>,
-    // pub exe: dyn Fn,
+    pub input: Vec<TypeId>,
+    pub output: Vec<TypeId>,
+    pub exe: fn(&[&dyn Any]) -> Vec<Box<dyn Any>>,
 }
 
 pub struct Yggdrasil {

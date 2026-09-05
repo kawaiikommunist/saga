@@ -1,5 +1,5 @@
 [workspace]
-members = ["game", "utils/proc", "utils/rules"]
+members = ["game", "utils/brancher", "utils/proc", "utils/rules"]
 default-members = ["game"]
 resolver = "3"
 

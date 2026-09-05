@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-rules = {path = "../utils/rules"}
+brancher = {path = "../utils/brancher"}
 
 bevy = { workspace = true }
 # Set max log levels. This helps avoid unwanted low-severity log spam, which can affect performance.

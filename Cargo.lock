@@ -1869,6 +1869,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "brancher"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.119",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.20.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2611,10 +2620,10 @@ name = "game"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "brancher",
  "grid",
  "log",
  "multimap",
- "rules",
  "slotmap",
  "tracing",
 ]
