@@ -19,6 +19,7 @@ tracing = { version = "0.1", features = [
 grid = { workspace = true }
 multimap = "0.10.1"
 slotmap = "1.1.1"
+bitvec = "1.1.1"
 
 # Idiomatic Bevy code often triggers these lints, and the CI workflow treats them as errors.
 # In some cases they may still signal poor code quality however, so consider commenting out these lines.
